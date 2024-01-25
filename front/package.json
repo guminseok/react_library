@@ -1,0 +1,63 @@
+{
+  "name": "front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 4000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --dir src",
+    "lint:fix": "yarn lint --fix",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "storybook:build": "build-storybook -c .storybook",
+    "stylelint": "stylelint './src/**/*.{ts,tsx}'",
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,json}' --ignore-path .gitignore",
+    "prepare": "cd ../ && husky install front/.husky",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "linaria": "^2.1.0",
+    "next": "^13.0.2",
+    "next-linaria": "^0.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanitize.css": "^13.0.0",
+    "swiper": "^8.4.4",
+    "swr": "^1.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "^18.11.4",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/parser": "^5.42.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.26.0",
+    "eslint-config-next": "^13.0.2",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-storybook": "^0.6.6",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "msw": "^0.48.1",
+    "prettier": "^2.7.1",
+    "storybook-addon-next": "^1.6.10",
+    "typescript": "^4.8.4"
+  },
+  "lint-staged": {
+    "./src/*.{js,ts,tsx}": [
+      "yarn lint",
+      "yarn format"
+    ]
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}
